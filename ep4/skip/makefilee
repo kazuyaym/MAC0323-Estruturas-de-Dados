@@ -1,0 +1,44 @@
+# ***************************************************************
+#
+# Makefile genérico para compilar programas em C
+# usando o compilador gcc
+#
+# ***************************************************************
+
+CFLAGS = -g -I. -Wall -pedantic -ansi
+LDFLAGS = -L.
+LDLIBS = -lm 
+
+RM = /bin/rm -f
+CC = gcc
+
+#======================================================================
+
+.c.o:
+	$(CC) $(CFLAGS) -c $*.c
+
+.c:
+	make $*.o
+	$(CC) $(CFLAGS) -o $* $*.o $(LDLIBS) 
+
+#======================================================================
+
+clean:
+	$(RM) *~ \#~ .\#* *.o core a.out
+
+#======================================================================
+
+prog3.2a: Num.o prog3.2a.o
+	$(CC) $(CFLAGS) -o prog3.2a Num.o prog3.2a.o $(LDLIBS) 
+
+prog3.8: Point.o prog3.8.o
+	$(CC) $(CFLAGS) -o prog3.8 Point.o prog3.8.o $(LDLIBS) 
+
+prog3.13: list.o prog3.13.o
+	$(CC) $(CFLAGS) -o prog3.13 list.o prog3.13.o $(LDLIBS) 
+
+prog3.20_alt: Point.o prog3.20_alt.o
+	$(CC) $(CFLAGS) -o prog3.20_alt Point.o prog3.20_alt.o $(LDLIBS) 
+
+driver: driver.o ST.o Item.o
+	$(CC) $(CFLAGS) -o driver driver.o ST.o Item.o $(LDLIBS)

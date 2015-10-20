@@ -1,0 +1,6 @@
++ texto2.txt
+- texto2.txt
++ texto2.txt
+- texto2.txt
+- texto2.txt
+p

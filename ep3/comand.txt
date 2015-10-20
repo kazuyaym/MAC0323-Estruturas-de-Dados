@@ -1,0 +1,8 @@
+lazy
+life
+.NP
+.NT
++
+.NP
+.NT
+.p

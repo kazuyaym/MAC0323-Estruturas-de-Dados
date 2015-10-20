@@ -1,0 +1,13 @@
+all: ep4main
+
+ep4main: ep4main.o ST.o Item.o
+	gcc -o ep ep4main.o ST.o Item.o -Wall -pedantic -ansi
+
+ep4main.o: ep4main.c
+	gcc -c ep4main.c
+	
+ST.o: ST.c
+	gcc -c ST.c
+
+Item.o: Item.c
+	gcc -c Item.c
